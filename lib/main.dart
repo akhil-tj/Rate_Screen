@@ -11,6 +11,7 @@ class Rate extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
+        title: Text('Rate Card'),
         backgroundColor: Colors.blue,
         leading: Icon(Icons.arrow_back),
       ),
