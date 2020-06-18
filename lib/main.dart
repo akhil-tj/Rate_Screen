@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ratescreen/list.dart';
 
 void main() {
   runApp(Rate());
@@ -92,8 +93,11 @@ class Rate extends StatelessWidget {
                 ),
               ),
             ),
-            Divider(
-              thickness: 5.0,
+//            Divider(
+//              thickness: 5.0,
+//            ),
+            SizedBox(
+              height: 20.0,
             ),
             Expanded(flex: 10, child: RtScreen())
           ],
@@ -113,31 +117,7 @@ class _RtScreenState extends State<RtScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        child: ListView(
-          shrinkWrap: true,
-          children: <Widget>[
-            ListTile(
-              title: Text("Item 1"),
-              trailing: Icon(Icons.keyboard_arrow_right),
-            ),
-            ListTile(
-              title: Text("Item 2"),
-              trailing: Icon(Icons.keyboard_arrow_right),
-            ),
-            ListTile(
-              title: Text("Item 3"),
-              trailing: Icon(Icons.keyboard_arrow_right),
-            ),
-            ListTile(
-              title: Text("Item 4"),
-              trailing: Icon(Icons.keyboard_arrow_right),
-            ),
-            ListTile(
-              title: Text("Item 5"),
-              trailing: Icon(Icons.keyboard_arrow_right),
-            ),
-          ],
-        ),
+        child: ExpansionTileSample(),
       ),
     );
   }
