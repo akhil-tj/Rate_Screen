@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ExpansionTileSample extends StatelessWidget {
+class MyExpansion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -15,9 +15,10 @@ List<String> avatar = <String>['A', 'B', 'C'];
 
 // One entry in the multilevel list displayed by this app.
 class Entry {
-  Entry(this.title, [this.children = const <Entry>[]]);
+  Entry(this.title, this.avatar, [this.children = const <Entry>[]]);
 
   final String title;
+  final String avatar;
   final List<Entry> children;
 }
 
@@ -25,27 +26,28 @@ class Entry {
 final List<Entry> data = <Entry>[
   Entry(
     'Chapter A',
+    'A',
     <Entry>[
-      Entry('Section A0'),
-      Entry('Section A1'),
-      Entry('Section A2'),
+      Entry('Section A0', ''),
+      Entry('Section A1', ''),
+      Entry('Section A2', ''),
     ],
   ),
   Entry(
     'Chapter B',
+    'B',
     <Entry>[
-      Entry('Section B0'),
-      Entry('Section B1'),
+      Entry('Section B0', ''),
+      Entry('Section B1', ''),
     ],
   ),
   Entry(
     'Chapter C',
+    'C',
     <Entry>[
-      Entry('Section C0'),
-      Entry('Section C1'),
-      Entry(
-        'Section C2',
-      ),
+      Entry('Section C0', ''),
+      Entry('Section C1', ''),
+      Entry('Section C2', ''),
     ],
   ),
 ];
@@ -63,7 +65,7 @@ class EntryItem extends StatelessWidget {
       leading: ExcludeSemantics(
         child: CircleAvatar(
           child: Text(
-            avatar[0],
+            root.avatar,
             style: TextStyle(color: Colors.white),
           ),
         ),
@@ -81,5 +83,5 @@ class EntryItem extends StatelessWidget {
 }
 
 void main() {
-  runApp(ExpansionTileSample());
+  runApp(MyExpansion());
 }
